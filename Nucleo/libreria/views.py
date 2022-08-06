@@ -1,3 +1,9 @@
+from http.client import HTTPResponse
+from multiprocessing import context
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def saludo(request):
+    greeting= "Bienvenido"
+    context = {'greeting':greeting}
+    return render (request, "home.html", context=context)
