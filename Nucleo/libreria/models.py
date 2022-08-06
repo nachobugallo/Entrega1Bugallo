@@ -16,6 +16,11 @@ class Books(models.Model):
         verbose_name = 'Libro'
         verbose_name_plural = 'Libros'
 
+
+#class Categories(models.Model):
+
+#class E_Books(models.Model):
+
 class Bindings(models.Model):
     name = models.CharField(max_length=50)
     price = models.FloatField()
