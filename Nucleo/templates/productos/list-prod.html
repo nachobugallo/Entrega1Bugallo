@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Nuestros Productos
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for book in Books %}
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{book.name}}</h5>
+      <p class="card-text">Por {{book.author}}.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Apto menores: {{book.book_is_atp}}</li>
+      <li class="list-group-item">Genero: {{book.book_category}}</li>
+      <li class="list-group-item">Disponible: {{book.is_active}}</li>
+      <li class="list-group-item">Stock: {{book.stock}}</li>
+    </ul>
+    <div class="card-body">
+      <a class="card-text">$ {{book.price}}</a>
+      <a href="#" class="card-link">¡Comprar!</a>
+    </div>
+  </div>
+
+{% endfor %}
+{% endblock %}
