@@ -20,6 +20,9 @@ from libreria.views import saludo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', saludo, name="saludo")
-    path('contacto/', contacto, name=contacto)
+    path('home/', saludo, name="saludo"),
+    path('libreria/', libreria, libreria='libreria'),
+    path('quienes_somos/', quienes_somos, name=quienes_somos),
+    path('sucursarles/', sucursarles, name=sucursarles),
+    path('contacto/', contacto, name=contacto),
 ]
