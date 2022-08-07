@@ -21,4 +21,5 @@ from libreria.views import saludo
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', saludo, name="saludo")
+    path('contacto/', contacto, name=contacto)
 ]
