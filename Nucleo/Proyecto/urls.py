@@ -16,12 +16,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from libreria.views import saludo
+from libreria.views import saludo, list_prod, create_product
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', saludo, name="saludo")
-    path('libreria/', libreria, libreria='libreria'),
+    path('productos/', list_prod, name="listprod"),
+    path('nuevo/', create_product, name="createprod"),
     path('quienes_somos/', quienes_somos, name='quienes_somos'),
     path('sucursarles/', sucursarles, name='sucursarles'),
     path('contacto/', contacto, name='contacto'),

@@ -29,3 +29,4 @@ class Bindings(models.Model):
     colorbook = models.CharField(max_length=50),
 
 #class Materials(models.Model):
+    colorbook = models.CharField(max_length=50),
