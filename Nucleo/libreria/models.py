@@ -26,3 +26,7 @@ class Bindings(models.Model):
     price = models.FloatField()
     bind_size = models.CharField(max_length=200, null=True, blank=True)
     book_is_hardcover = models.BooleanField(default=True)
+    colorbook = models.CharField(max_length=50),
+
+#class Materials(models.Model):
+    colorbook = models.CharField(max_length=50),
