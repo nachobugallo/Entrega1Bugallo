@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', saludo, name="saludo"),
     path('productos/createprod/', create_product, name="createprod"),
-    path('productos/list_prod/', list_prod, name="list_prod"),
+    path('productos/list-prod/', list_prod, name="list-prod"),
     path('productos/search-prod/', search_prod, name="search")
 ]

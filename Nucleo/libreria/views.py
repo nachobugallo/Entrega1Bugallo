@@ -21,13 +21,13 @@ def create_product(request):
             Books.objects.create(
                 name = form.cleaned_data['name'],
                 price = form.cleaned_data['price'],
-                author = form.cleaned_data['description'],
+                author = form.cleaned_data['author'],
                 is_active = form.cleaned_data['is_active'],
                 book_is_atp = form.cleaned_data['book_is_atp'],
                 book_category = form.cleaned_data['book_category'],
                 stock = form.cleaned_data['stock']
             )
-            return redirect(list_prod)
+            return redirect(create_product)
 
     elif request.method == 'GET':
         form = Formulario_Books()
@@ -35,9 +35,9 @@ def create_product(request):
         return render(request, 'productos/new-prod.html', context=context)
 
 def list_prod(request):
-    products = Books.objects.all()
+    books = Books.objects.all()
     context = {
-        'products':products
+        'books': books
     }
     return render(request, 'productos/list-prod.html', context=context)
 
