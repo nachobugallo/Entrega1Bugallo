@@ -32,10 +32,17 @@ def create_product(request):
     elif request.method == 'GET':
         form = Formulario_Books()
         context = {'form':form}
-        return render(request, 'new-prod.html', context=context)
+        return render(request, 'productos/new-prod.html', context=context)
+
 def list_prod(request):
     products = Books.objects.all()
     context = {
         'products':products
     }
-    return render(request, 'list-prod.html', context=context)
+    return render(request, 'productos/list-prod.html', context=context)
+
+def search_prod(request):
+    search = request.GET['search']
+    products = Books.objects.get(name__icontains=search) 
+    context = {'products':products}
+    return render(request, 'productos/search-prod.html', context=context)
