@@ -2,8 +2,9 @@ from http.client import HTTPResponse
 from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from Nucleo.libreria.models import Bindings, Personalnotebook
 from libreria.models import Books
-from libreria.forms import Formulario_Books
+from libreria.forms import Formulario_Books, Formulario_Bindings, Formulario_Personalnotebook
 
 
 def saludo(request):
@@ -34,6 +35,36 @@ def create_product(request):
         context = {'form':form}
         return render(request, 'productos/new-prod.html', context=context)
 
+def create_binding(request):
+
+    if request.method == 'POST':
+        form = Formulario_Bindings(request.POST)
+
+        if form.is_valid():
+            Formulario_Bindings.objects.create(
+                name = form.cleaned_data['name'],
+                price = form.cleaned_data['price'],
+                bind_size = form.cleaned_data['bind_size'],
+                book_is_hardcover = form.cleaned_data['book_is_hardcover'],
+                colorbook = form.cleaned_data['colorbook']
+            )
+            return redirect(create_binding)
+
+def create_notebook(request):
+
+    if request.method == 'POST':
+        form = Formulario_Personalnotebook(request.POST)
+
+        if form.is_valid():
+            Formulario_Personalnotebook.objects.create(
+                name = form.cleaned_data['name'],
+                price = form.cleaned_data['price'],
+                bind_size = form.cleaned_data['bind_size'],
+                book_is_hardcover = form.cleaned_data['book_is_hardcover'],
+                colorbook = form.cleaned_data['colorbook']
+            )
+            return redirect(create_notebook)
+
 def list_prod(request):
     books = Books.objects.all()
     context = {
@@ -46,3 +77,29 @@ def search_prod(request):
     products = Books.objects.get(name__icontains=search) 
     context = {'products':products}
     return render(request, 'productos/search-prod.html', context=context)
+
+def list_bind(request):
+    bindings = Bindings.objects.all()
+    context = {
+        'bindings': bindings
+    }
+    return render(request, 'productos/  ', context=context)
+
+def search_bind(request):
+    search = request.GET['search']
+    products = Bindings.objects.get(name__icontains=search) 
+    context = {'products':products}
+    return render(request, 'productos/  ', context=context)
+
+def list_notebook(request):
+    notebooks = Personalnotebook.objects.all()
+    context = {
+        'notebooks': notebooks
+    }
+    return render(request, 'productos/    ', context=context)
+
+def search_notebooks(request):
+    search = request.GET['search']
+    products = Personalnotebook.objects.get(name__icontains=search) 
+    context = {'products':products}
+    return render(request, 'productos/   ', context=context)
