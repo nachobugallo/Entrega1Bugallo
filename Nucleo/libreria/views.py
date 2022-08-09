@@ -2,8 +2,7 @@ from http.client import HTTPResponse
 from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from Nucleo.libreria.models import Bindings, Personalnotebook
-from libreria.models import Books
+from libreria.models import Books, Bindings, Personalnotebook
 from libreria.forms import Formulario_Books, Formulario_Bindings, Formulario_Personalnotebook
 
 
@@ -49,6 +48,11 @@ def create_binding(request):
                 colorbook = form.cleaned_data['colorbook']
             )
             return redirect(create_binding)
+    
+    elif request.method == 'GET':
+        form = Formulario_Bindings()
+        context = {'form':form}
+        return render(request, 'productos/new-binding.html', context=context)
 
 def create_notebook(request):
 
@@ -64,6 +68,11 @@ def create_notebook(request):
                 colorbook = form.cleaned_data['colorbook']
             )
             return redirect(create_notebook)
+    
+    elif request.method == 'GET':
+        form = Formulario_Personalnotebook()
+        context = {'form':form}
+        return render(request, 'productos/new-notebook.html', context=context)
 
 def list_prod(request):
     books = Books.objects.all()
@@ -83,7 +92,7 @@ def list_bind(request):
     context = {
         'bindings': bindings
     }
-    return render(request, 'productos/  ', context=context)
+    return render(request, 'productos/list-prod.html', context=context)
 
 def search_bind(request):
     search = request.GET['search']
@@ -96,7 +105,7 @@ def list_notebook(request):
     context = {
         'notebooks': notebooks
     }
-    return render(request, 'productos/    ', context=context)
+    return render(request, 'productos/list-prod.html', context=context)
 
 def search_notebooks(request):
     search = request.GET['search']
