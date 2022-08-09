@@ -41,7 +41,7 @@ def create_binding(request):
         form = Formulario_Bindings(request.POST)
 
         if form.is_valid():
-            Formulario_Bindings.objects.create(
+            Bindings.objects.create(
                 name = form.cleaned_data['name'],
                 price = form.cleaned_data['price'],
                 bind_size = form.cleaned_data['bind_size'],
@@ -56,7 +56,7 @@ def create_notebook(request):
         form = Formulario_Personalnotebook(request.POST)
 
         if form.is_valid():
-            Formulario_Personalnotebook.objects.create(
+            Personalnotebook.objects.create(
                 name = form.cleaned_data['name'],
                 price = form.cleaned_data['price'],
                 bind_size = form.cleaned_data['bind_size'],
