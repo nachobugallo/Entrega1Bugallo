@@ -17,16 +17,16 @@ class Books(models.Model):
         verbose_name_plural = 'Libros'
 
 
-#class Categories(models.Model):
-
-#class E_Books(models.Model):
+class Personalnotebook(models.Model):
+    name = models.CharField(max_length=50)
+    price = models.FloatField()
+    bind_size = models.CharField(max_length=200, null=True, blank=True)
+    book_is_hardcover = models.BooleanField(default=True)
+    colorbook = models.CharField(max_length=50)
 
 class Bindings(models.Model):
     name = models.CharField(max_length=50)
     price = models.FloatField()
     bind_size = models.CharField(max_length=200, null=True, blank=True)
     book_is_hardcover = models.BooleanField(default=True)
-    colorbook = models.CharField(max_length=50),
-
-#class Materials(models.Model):
-    colorbook = models.CharField(max_length=50),
+    colorbook = models.CharField(max_length=50)
