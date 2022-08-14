@@ -26,32 +26,46 @@
         <li class="nav-item">
           <a class="nav-link" href="/home/">Home</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="createprod/" role="button" data-toggle="dropdown" aria-expanded="false" name="createprod">
+            Listado de productos
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/productos/list-prod/">Bookshelf</a>
+            <a class="dropdown-item" href="/productos/list-bind/">Lista Binding</a>
+            <a class="dropdown-item" href="/productos/list-notebook/">Lista notebook</a>
+        <!-- <li class="nav-item active">
           <a class="nav-link" href="/productos/list-prod/">Bookshelf <span
               class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/productos/list-bind/">Lista Binding <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/productos/list-notebook/">Lista notebook <span
+              class="sr-only">(current)</span></a>
+        </li> -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="createprod/" role="button" data-toggle="dropdown" aria-expanded="false" name="createprod">
+          <a class="nav-link dropdown-toggle" href="createprod/" role="button" data-toggle="dropdown" aria-expanded="false" name="createprod" style="margin-right: 55rem ;">
             Buscar por...
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Nombre</a>
             <a class="dropdown-item" href="#">Género</a>
             <a class="dropdown-item" href="#">Autor</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/template_lista/">Quiénes somos?</a>
+          <a class="nav-link" href="/quienes_somos/">Quiénes somos?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/template_lista/">Contacto</a>
+          <a class="nav-link" href="/contacto/">Contacto</a>
         </li>
 
 
       </ul>
-      <form class="form-inline my-2 my-lg-0" action="/products/search_products/" method="GET">
+      <form class="form-inline my-2 my-lg-0" action="/productos/search-prod/" method="GET">
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </form>

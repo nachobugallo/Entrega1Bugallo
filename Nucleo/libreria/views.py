@@ -11,6 +11,15 @@ def saludo(request):
     context = {'greeting':greeting}
     return render (request, "home.html", context=context)
 
+def quienes_somos(request):
+
+    return render (request, "quienes_somos.html", context={})
+
+def contacto(request):
+
+    return render (request, "contacto.html", context={})
+    
+
 
 def create_product(request):
     
@@ -92,7 +101,7 @@ def list_bind(request):
     context = {
         'bindings': bindings
     }
-    return render(request, 'productos/list-prod.html', context=context)
+    return render(request, 'productos/list-bind.html', context)
 
 def search_bind(request):
     search = request.GET['search']
@@ -105,7 +114,7 @@ def list_notebook(request):
     context = {
         'notebooks': notebooks
     }
-    return render(request, 'productos/list-prod.html', context=context)
+    return render(request, 'productos/list-notebook.html', context=context)
 
 def search_notebooks(request):
     search = request.GET['search']

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Nuestros binds
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+
+
+{% for bind in bindings %}
+
+<div class="card" style="width: 18rem;">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAmAdXJiI_Hj6eUjCKQmCIDQ5Hgi0n3h-IFb1-O6Xl0L_pA7EiqipOUM0AWXGndvN8SD8&usqp=CAU" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{bind.name}}</h5>
+    <!-- <p class="card-text">Por {{bind.author}}</p> -->
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Tamaño: {{bind.bind_size}}</li>
+    <li class="list-group-item">Tapa dura: {{bind.book_is_hardcover}}</li>
+    <li class="list-group-item">Color: {{bind.colorbook}}</li>
+  </ul>
+  <div class="card-body">
+    <a class="card-text">$ {{bind.price}}</a>
+    <a href="#" class="card-link">¡Comprar!</a>
+  </div>
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}

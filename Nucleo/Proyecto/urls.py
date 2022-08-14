@@ -17,14 +17,19 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path
-from libreria.views import saludo, create_product, list_prod, search_prod, create_binding, create_notebook
+from libreria.views import saludo, create_product, list_prod, search_prod, create_binding, create_notebook, list_bind, list_notebook, quienes_somos , contacto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', saludo, name="saludo"),
     path('productos/create-prod/', create_product, name="createprod"),
     path('productos/list-prod/', list_prod, name="list-prod"),
-    path('productos/search-prod/', search_prod, name="search"),
+    path('productos/search-prod/', search_prod, name="search-prod"),
     path('productos/create-binding/', create_binding, name = 'createbinding'),
-    path('productos/create-notebook/', create_notebook, name = 'create_notebook')
+    path('productos/create-notebook/', create_notebook, name = 'create_notebook'),
+    path('productos/list-bind/', list_bind, name = 'list-bind'),
+    path('productos/list-notebook/', list_notebook, name = 'list-notebook'),
+    path('quienes_somos/', quienes_somos, name = 'quienes_somos'),
+    path('contacto/', contacto, name = 'contacto')
+
 ]

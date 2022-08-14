@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Nuestros cuadernos
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+
+
+{% for notebook in notebooks %}
+
+<div class="card" style="width: 18rem;">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuE4x2LLqEw0T_rqXBmVnFAFp9vNqCQ-xZ8w&usqp=CAU" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{notebook.name}}</h5>
+    <!-- <p class="card-text">Por {{bind.author}}</p> -->
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Tamaño: {{notebook.bind_size}}</li>
+    <li class="list-group-item">Tapa dura: {{notebook.book_is_hardcover}}</li>
+    <li class="list-group-item">Color: {{notebook.colorbook}}</li>
+  </ul>
+  <div class="card-body">
+    <a class="card-text">$ {{notebook.price}}</a>
+    <a href="#" class="card-link">¡Comprar!</a>
+  </div>
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}

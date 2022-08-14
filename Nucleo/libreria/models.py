@@ -22,7 +22,7 @@ class Personalnotebook(models.Model):
     price = models.FloatField()
     bind_size = models.CharField(max_length=200, null=True, blank=True)
     book_is_hardcover = models.BooleanField(default=True)
-    colorbook = models.CharField(max_length=50)
+    colorbook = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -36,7 +36,7 @@ class Bindings(models.Model):
     price = models.FloatField()
     bind_size = models.CharField(max_length=200, null=True, blank=True)
     book_is_hardcover = models.BooleanField(default=True)
-    colorbook = models.CharField(max_length=50)
+    colorbook = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.name
