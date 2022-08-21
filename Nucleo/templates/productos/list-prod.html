@@ -24,9 +24,11 @@ Nuestros books
   <div class="card-body">
     <a class="card-text">$ {{book.price}}</a>
     <a href="#" class="card-link">¡Comprar!</a>
+    <a href="/productos/update_product/{{book.id}}" class="btn btn-primary">Editar</a>
+    <a href="/productos/delete_product/{{book.id}}" class="btn btn-danger">Borrar</a>
+
   </div>
 </div>
-
 
 
 {% endfor %}

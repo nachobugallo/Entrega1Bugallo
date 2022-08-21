@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{%block titulo %}
+
+Actualización de productos
+
+{%endblock%}
+
+{%block contenidoQueCambia%}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+
+        {{form.as_table}}
+
+    </table>
+
+    <p><input type="submit" value="enviar"></p>
+
+
+
+
+</form>
+
+{% endblock %}
