@@ -5,7 +5,8 @@ from django.http import HttpResponse
 from libreria.models import Books, Bindings, Personalnotebook
 from libreria.forms import Formulario_Books, Formulario_Bindings, Formulario_Personalnotebook
 
-
+def home(request):
+    return render(request, "home.html", context={})
 def saludo(request):
     greeting= "Bienvenido"
     context = {'greeting':greeting}
