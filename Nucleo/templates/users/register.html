@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-Carga de binding
+    Registro
 {% endblock %}
 
 {% block contenidoQueCambia %}
@@ -9,15 +9,15 @@ Carga de binding
 <form action="" method="POST">
 {% csrf_token %}
 
-<table>
+    <table>
 
-    {{form.as_table}}
+        {{form.as_table}}
 
-</table>
+    </table>
 
-<p><input type="submit" value="Cargar"></p>
+    <p><input type="submit" value="Registrese!"></p>
 
-</form>
+    </form>
 
 
 {% endblock %}

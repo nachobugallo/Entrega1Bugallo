@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'libreria'
+    'libreria',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -112,6 +113,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+"""
+Ver porque demonios no se ilumina el os.path.join para las imagenes. 
+Pd. No cuetearse. 
+Pd del Pd: hay un class comentado en users/models que va con esto. 
+Pd del pd del pd: esta el +static que va con esto es urls.py
+KEK
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+"""
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/

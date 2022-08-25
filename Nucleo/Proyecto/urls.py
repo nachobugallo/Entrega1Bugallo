@@ -17,12 +17,19 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path
+from django.conf import Settings
+from django.conf.urls.static import static
 from libreria.views import home, saludo, update_product, create_product, delete_product, list_prod, search_prod, create_binding, create_notebook, list_bind, list_notebook, quienes_somos , contacto
+from users.views import login_request, register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home, name="home"),
-    path('home/', saludo, name="saludo"),
+    path('index/', saludo, name="saludo"),
+    path('contacto/', contacto, name = 'contacto'),
+    path('users/login/', login_request, name = 'login'),
+    path('users/register.html', register, name='register'),
+    path('about/', quienes_somos, name = 'quienes_somos'),
     path('productos/create-prod/', create_product, name="createprod"),
     path('productos/delete_product/<int:pk>/', delete_product, name="delete_product"),
     path('productos/update_product/<int:pk>/', update_product, name="update_product"),
@@ -31,8 +38,6 @@ urlpatterns = [
     path('productos/create-binding/', create_binding, name = 'createbinding'),
     path('productos/create-notebook/', create_notebook, name = 'create_notebook'),
     path('productos/list-bind/', list_bind, name = 'list-bind'),
-    path('productos/list-notebook/', list_notebook, name = 'list-notebook'),
-    path('quienes_somos/', quienes_somos, name = 'quienes_somos'),
-    path('contacto/', contacto, name = 'contacto')
-
-]
+    path('productos/list-notebook/', list_notebook, name = 'list-notebook')
+    
+] #+ static(Settings.MEDIA_URL, document_root=Settings.MEDIA_ROOT)
