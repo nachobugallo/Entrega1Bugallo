@@ -54,8 +54,8 @@ def list_prod(request):
 
 def search_prod(request):
     search = request.GET['search']
-    products = Books.objects.get(name__icontains=search) 
-    context = {'products':products}
+    books = Books.objects.filter(name__icontains=search) 
+    context = {'books':books}
     return render(request, 'productos/search-prod.html', context=context)
 
 

@@ -6,24 +6,22 @@
 
 {% block contenidoQueCambia %}
 
-{% for book in Books %}
+{% for book in books %}
 
 <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{book.name}}</h5>
-      <p class="card-text">Por {{book.author}}.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Apto menores: {{book.book_is_atp}}</li>
-      <li class="list-group-item">Genero: {{book.book_category}}</li>
-      <li class="list-group-item">Disponible: {{book.is_active}}</li>
-      <li class="list-group-item">Stock: {{book.stock}}</li>
-    </ul>
-    <div class="card-body">
-      <a class="card-text">$ {{book.price}}</a>
-      <a href="#" class="card-link">¡Comprar!</a>
-    </div>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_X4H8L0q1FhWB-6-HYOS6Ys4sGKiqEH4MQg&usqp=CAU" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{book.name}}</h5>
+    <p class="card-text">Por {{book.author}}</p>
   </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Apto menores: {{book.book_is_atp}}</li>
+    <li class="list-group-item">Genero: {{book.book_category}}</li>
+    <li class="list-group-item">Disponible: {{book.is_active}}</li>
+    <li class="list-group-item">Stock: {{book.stock}}</li>
+  </ul>
+  <div class="card-body">
+    <a class="card-text">$ {{book.price}}</a>
 
 {% endfor %}
 {% endblock %}
