@@ -50,7 +50,7 @@ def list_prod(request):
     context = {
         'books': books
     }
-    return render(request, 'productos/list-prod.html', context=context)
+    return render(request, 'productos/lista-prod.html', context=context)
 
 def search_prod(request):
     search = request.GET['search']
@@ -76,12 +76,13 @@ def update_product(request, pk):
             book =Books.objects.get(id=pk)
             book.name = form.cleaned_data['name']
             book.price = form.cleaned_data['price']
-            book.author = form.cleaned_data['author'],
-            book.is_active = form.cleaned_data['is_active'],
-            book.book_is_atp = form.cleaned_data['book_is_atp'],
-            book.book_category = form.cleaned_data['book_category'],
+            book.author = form.cleaned_data['author']
+            book.is_active = form.cleaned_data['is_active']
+            book.book_is_atp = form.cleaned_data['book_is_atp']
+            book.book_category = form.cleaned_data['book_category']
             book.stock = form.cleaned_data['stock']
             book.save()
+            return redirect(list_prod)
                 
 
     elif request.method == 'GET':
