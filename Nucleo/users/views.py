@@ -17,7 +17,7 @@ def login_request(request):
                 login(request, user)
 
                 context = {'message':f'Bienvenido {username} a La Libreria!'}
-                return render(request, 'index.html', context = context)
+                return render(request, 'home.html', context = context)
 
         form = AuthenticationForm()
         return render(request, 'users/login.html', {'error': 'Formulário inválido', 'form': form})
@@ -45,6 +45,6 @@ def register(request):
 # def show_profile(request):
 #     if request.user.is_authenticated:
 #         return HTTPResponse(request.user.profile.phone)
-def logout_request(request):
-    if request.method == 'GET':
-        return logout(request, "base.html", context={})
+# def logout_request(request):
+#     if request.method == 'GET':
+#         return logout(request, "base.html", context={})

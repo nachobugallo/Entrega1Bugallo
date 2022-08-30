@@ -21,6 +21,7 @@ from django.conf import Settings
 from django.conf.urls.static import static
 from libreria.views import home, saludo, update_product, create_product, delete_product, list_prod, search_prod, create_binding, create_notebook, list_bind, list_notebook, quienes_somos , contacto
 from users.views import login_request, register
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +29,8 @@ urlpatterns = [
     path('index/', saludo, name="saludo"),
     path('contacto/', contacto, name = 'contacto'),
     path('users/login/', login_request, name = 'login'),
-    path('users/register.html', register, name='register'),
+    path('users/register/', register, name='register'),
+    path('users/logout/', LogoutView.as_view(template_name  = 'users/logout.html'), name = 'logout'),
     path('about/', quienes_somos, name = 'quienes_somos'),
     path('productos/create-prod/', create_product, name="createprod"),
     path('productos/delete_product/<int:pk>/', delete_product, name="delete_product"),
