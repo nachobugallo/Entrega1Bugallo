@@ -2,7 +2,7 @@ Entrega Final.
 
 Bugallo, Masitti, y Miranda.
 
-
+Video del proyecto -> https://www.youtube.com/watch?v=oqKZNkRf42A
 
 Se trata de un proyecto tipo ecommerce, con un navegador simple.
 Emula ser una libreria pequeña.
