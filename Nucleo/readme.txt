@@ -1,6 +1,6 @@
 Entrega Final.
 
-Bugallo, Massitti, y Miranda.
+Bugallo, Masitti, y Miranda.
 
 
 
