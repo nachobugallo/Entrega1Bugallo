@@ -2,7 +2,9 @@ from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 from users.forms import User_registration_form
+
 
 def login_request(request):
     if request.method == 'POST':
@@ -42,9 +44,15 @@ def register(request):
         form = User_registration_form()
         return render(request, 'users/register.html', {'form': form})
 
-# def show_profile(request):
-#     if request.user.is_authenticated:
-#         return HTTPResponse(request.user.profile.phone)
+@login_required
+def my_profile(request):
+    if request.user.is_authenticated:
+        return render(request, 'users/myprofile.html')
+
+#def my_profile(request):
+#    
+#   return render(request, 'myprofile.html', context=context)
+
 # def logout_request(request):
 #     if request.method == 'GET':
 #         return logout(request, "base.html", context={})
