@@ -31,7 +31,7 @@ urlpatterns = [
     path('users/login/', login_request, name = 'login'),
     path('users/register/', register, name='register'),
     path('users/logout/', LogoutView.as_view(template_name  = 'users/logout.html'), name = 'logout'),
-    path('users/my_profile', my_profile, name = 'my_profile'),
+    path('users/my_profile/', my_profile, name = 'my_profile'),
     path('about/', quienes_somos, name = 'quienes_somos'),
     path('productos/create-prod/', create_product, name="createprod"),
     path('productos/delete_product/<int:pk>/', delete_product, name="delete_product"),

@@ -47,7 +47,7 @@ def register(request):
 @login_required
 def my_profile(request):
     if request.user.is_authenticated:
-        return render(request, 'users/myprofile.html')
+        return render(request, 'users/my_profile.html')
 
 #def my_profile(request):
 #    
