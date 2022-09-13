@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from libreria.models import Books, Bindings, Personalnotebook
 from libreria.forms import Formulario_Books, Formulario_Bindings, Formulario_Personalnotebook
-
+from django.contrib.admin.views.decorators import staff_member_required
 
 def home(request):
     return render(request, "home.html", context={})
@@ -58,7 +58,7 @@ def search_prod(request):
     context = {'books':books}
     return render(request, 'productos/search-prod.html', context=context)
 
-
+@staff_member_required
 def delete_product(request, pk):
     if request.method == 'GET':
         book = Books.objects.get(pk = pk)
@@ -69,6 +69,7 @@ def delete_product(request, pk):
         book.delete()
         return redirect(list_prod)
 
+@staff_member_required
 def update_product(request, pk):
     if request.method == 'POST':
         form = Formulario_Books(request.POST)
