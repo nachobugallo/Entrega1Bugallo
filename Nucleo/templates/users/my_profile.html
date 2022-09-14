@@ -6,8 +6,14 @@
 
 {% block contenidoQueCambia %}
 
-<form action="href=" method="GET">
+    {% for user in users %}
 
-    {% csrf_token %}
+        {{ user.user }}
+
+        {{ user.phone }}
+
+        {{ user.adress }}
+
+    {% endfor %}
 
 {% endblock %}

@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from users.forms import User_registration_form
+from users.models import User
 
 
 def login_request(request):
@@ -49,10 +50,10 @@ def my_profile(request):
     if request.user.is_authenticated:
         return render(request, 'users/my_profile.html')
 
-#def my_profile(request):
-#    
-#   return render(request, 'myprofile.html', context=context)
-
-# def logout_request(request):
-#     if request.method == 'GET':
-#         return logout(request, "base.html", context={})
+def my_profile(request):
+    if request.method == 'GET':
+        users = User.objects.all()
+        context = {
+            'users': users
+    }
+        return render(request, 'users/my_profile.html')
