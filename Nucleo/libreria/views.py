@@ -22,7 +22,7 @@ def contacto(request):
     return render (request, "contacto.html", context={})
     
 
-
+@staff_member_required
 def create_product(request):
     
     if request.method == 'POST':
